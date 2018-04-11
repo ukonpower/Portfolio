@@ -29,4 +29,8 @@ export default class MainGraphic extends Graphic{
 
         this.Update();
     }
+
+    ChangeModel(contentName){
+        this.currentScene.ChangeModel(contentName.split('_')[0]);
+    }
 }

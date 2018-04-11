@@ -99,6 +99,7 @@ canvas{
     height: 3px;
     width: 85%;
     transition: 300ms;
+    pointer-events: none;
 }
 
 .selected_button{

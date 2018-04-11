@@ -9,36 +9,33 @@ export default class StyleController {
     }
 
     ChangeActiveButton(activeBtn) {
+        //アクティブボタンを変更
         $('.menu_button').each(function () {
             $(this).removeClass('selected_button');
         });
         activeBtn.children('.menu_button').addClass('selected_button');
+
+        //アクティブコンテンツ名を変更
+        var newText = activeBtn.attr('id').split('_')[0];
+        this.ChangeGuideText(newText[0].toUpperCase() + newText.substring(1, newText.length));
+
     }
 
-    ChangePage(pageNum) {
-        $('.content').each(function () {
-            console.log($(this));
-            $(this).fadeOut(100);
-            // $(this).removeClass('selected_content');
+    ChangeGuideText(text) {
+        $('#guide').animate({
+            // width: '0px'
+            opacity: 0
+        }, 300, () => {
+            $('#guide').html(text[0].toUpperCase() + text.substring(1, text.length));
+            $('#guide').animate({
+                // width: '35%'
+                opacity: 1
+            }, 300);
         })
-
-        var btn;
-        switch (pageNum) {
-            case 0:
-                btn = "about";
-                break;
-            case 1:
-                btn = "pictures";
-                break;
-            case 2:
-                btn = "movies";
-                break;
-            case 3:
-                btn = "softwares"
-                break;
-        }
-
-        $('#guide').html(btn[0].toUpperCase() + btn.substring(1,btn.length));
-        $('#' + btn).fadeIn(400);
     }
+
+    ChangePage(contentId) {
+
+    }
+
 }

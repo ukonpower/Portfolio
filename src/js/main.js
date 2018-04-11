@@ -18,28 +18,9 @@ class App {
     }
 
     onMenuButtonClick(event) {
-        switch ($(event.target).attr('id')) {
-            case 'plofile_button':
-                this.activePage = 0;
-                break;
-            case 'pictures_button':
-                this.activePage = 1;
-                break;
-            case 'movies_button':
-                this.activePage = 2;
-                break;
-            case 'softwares_button':
-                this.activePage = 3;
-                break
-            default:
-                this.activePage = -1;
-        }
-        console.log($(event.target).attr('id'));
-        if (this.activePage != -1) {
-            console.log(this.activePage);
-
+        if (!$(event.target).children('.menu_button').hasClass('selected_button')) {
             this.styleController.ChangeActiveButton($(event.target));
-            this.styleController.ChangePage(this.activePage);
+            this.mainGraphic.ChangeModel($(event.target).attr('id'));
         }
     }
 
