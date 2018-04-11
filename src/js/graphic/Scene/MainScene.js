@@ -16,7 +16,7 @@ export default class MainScene extends BaceScene {
         this.scene.fog = new THREE.Fog(this.scene.background,1,15);
 
         this.camera.position.set(0, 2.5, 5)
-        this.camera.rotation.set(-Math.PI / 14,0,0);
+        this.camera.rotation.set(-Math.PI / 10,0,0);
 
         var light = new THREE.AmbientLight(0xffffff, 0.8);
         light.position.set(2, 2, 2);

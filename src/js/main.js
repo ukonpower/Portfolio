@@ -18,8 +18,6 @@ class App {
     }
 
     onMenuButtonClick(event) {
-        this.styleController.ChangeActiveButton($(event.target));
-
         switch ($(event.target).attr('id')) {
             case 'plofile_button':
                 this.activePage = 0;
@@ -33,8 +31,16 @@ class App {
             case 'softwares_button':
                 this.activePage = 3;
                 break
+            default:
+                this.activePage = -1;
         }
-        this.styleController.ChangePage(this.activePage);
+        console.log($(event.target).attr('id'));
+        if (this.activePage != -1) {
+            console.log(this.activePage);
+
+            this.styleController.ChangeActiveButton($(event.target));
+            this.styleController.ChangePage(this.activePage);
+        }
     }
 
 
