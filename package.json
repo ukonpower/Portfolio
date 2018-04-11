@@ -1,0 +1,30 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "description": "myHomePage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/polyfill": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/register": "^7.0.0-beta.40",
+    "babel-loader": "^8.0.0-beta.0",
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-plumber": "^1.2.0",
+    "jquery": "^3.3.1",
+    "three": "^0.91.0",
+    "three-gltf2-loader": "^1.2.0",
+    "three-orbit-controls": "^82.1.0",
+    "webpack": "^3.9.1",
+    "webpack-stream": "^4.0.2"
+  },
+  "dependencies": {}
+}

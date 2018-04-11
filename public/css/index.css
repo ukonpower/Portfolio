@@ -1,0 +1,118 @@
+ul{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+html,body{
+    margin: 0;
+}
+
+.font{
+    font-family: 'Comfortaa';
+}
+
+img{
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 3px 3px;
+}
+
+canvas{
+    position: relative;
+}
+/* ----------------------------init */
+
+.filter{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(75%, rgba(255, 255, 255, 0)),to(rgb(255, 255, 255)));
+    background:linear-gradient(to bottom, rgba(255, 255, 255, 0) 75%,rgb(255, 255, 255));
+}
+
+.main_graphic{
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+#title{
+    position: absolute;
+    width: 80%;
+    left: 0; right: 0;
+    top: 10%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 45pt;
+}
+
+#menu{
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+    top: 90%;
+    margin: 0 auto;
+    z-index: 3;
+}
+
+#menu li{
+    position: relative;
+    list-style: none;
+    float: left;
+    width: 25%;
+    height: 50px;
+}
+
+.menu_button{
+    position: absolute;
+    left: 0;right: 0;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    height: 3px;
+    width: 85%;
+    -webkit-transition: 300ms;
+    transition: 300ms;
+}
+
+.selected_button{
+    background-color: black;
+    width: 90%;
+    top: 0;
+}
+
+.contents_container{
+    position: relative;
+    margin: 50px auto;
+}
+.contents{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.content{
+    margin: 10px 0;
+    padding: 30px 10px;
+    display: none;
+    -webkit-transition: 100ms;
+    transition: 100ms;
+}
+
+.selected_content{
+    display: block;
+}
+
+.sub_title{
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    padding: 8px;
+    text-align: center;
+    border: solid 3px black;
+    border-radius: 10px / 10px;
+    font-size: 25pt;
+}
