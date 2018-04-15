@@ -34,8 +34,15 @@ export default class StyleController {
         })
     }
 
-    ChangePage(contentId) {
+    ViewContent(contentId) {
+        this.CloseMenu()
+    }
 
+    CloseMenu() {
+        $('#title').fadeOut();
+        $('#guide').fadeOut();
+        $('#menu').fadeOut();
+        $('.filter').animate({ opacity: '0'}, 2000);
     }
 
 }

@@ -20,7 +20,7 @@ class App {
     onMenuButtonClick(event) {
         if (!$(event.target).children('.menu_button').hasClass('selected_button')) {
             this.styleController.ChangeActiveButton($(event.target));
-            this.mainGraphic.ChangeModel($(event.target).attr('id'));
+            this.mainGraphic.CameraRotation($(event.target).attr('id'));
         }
     }
 

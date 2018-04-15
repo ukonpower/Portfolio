@@ -21,10 +21,9 @@ export default class Graphic{
     init(){
         this.Update();
     }
-    
+
     Update(){
         this.renderer.render(this.currentScene.scene,this.currentScene.camera);
-        this.currentScene.Update();
         requestAnimationFrame(this.Update.bind(this));
     }
 

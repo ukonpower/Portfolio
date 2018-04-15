@@ -26,11 +26,10 @@ export default class MainGraphic extends Graphic{
             window.addEventListener('mousemove',this.currentScene.onTouchMove.bind(this.currentScene));
             window.addEventListener('mouseup',this.currentScene.onTouchEnd.bind(this.currentScene));
         }
-
         this.Update();
     }
 
-    ChangeModel(contentName){
-        this.currentScene.ChangeModel(contentName.split('_')[0]);
+    CameraRotation(contentName){
+        this.currentScene.CameraRotation(contentName.split('_')[0]);
     }
 }
