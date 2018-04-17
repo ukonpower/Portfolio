@@ -1,20 +1,22 @@
 import BaceScene from './BaceScene.js';
 import * as THREE from 'three'
 import * as OrbitControls from 'three-orbit-controls';
-import StyleController from '../../StyleController.js';
 import ObjectController from '../../ObjectController.js';
 
 export default class MainScene extends BaceScene {
 
     constructor() {
         super();
-        this.styleController = new StyleController();
         this.objController;
         this.objects = new Array();
         this.lookObjNum = 0;
         this.lookObjName;
         this.tick = 0;
         this.tickSpeed = 2;
+        this.sceneName = 'menu';
+
+        this.onOpenContents;
+        this.onBackButtonClick;
         this.init();
     }
 
@@ -75,11 +77,29 @@ export default class MainScene extends BaceScene {
 
     onTap() {
         var activeObject = this.GetTouchObject();
-        if ( activeObject != null){
+        if (activeObject) {
+            if (this.objController && this.objController.moving) return;
             this.objController = new ObjectController(this.scene.getObjectByName(activeObject.name));
-            this.styleController.CloseMenu();
-            this.objController.Move(2);
+            this.OpenContents();
         }
+    }
+
+    OpenContents() {
+        location.href = "./#/" + this.objController.object.name;
+        if (this.sceneName != 'menu' || (this.objController && this.objController.moving)) return;
+        this.sceneName = 'contents';
+        if (this.onOpenContents) this.onOpenContents(this.objController.object.name);
+        this.cameraController.Move(17.5);
+        this.objController.Move(20);
+        this.objController.SizeChange(0.5);
+    }
+
+    CloseContents() {
+        if (this.sceneName != 'contents' || (this.objController && this.objController.moving)) return;
+        this.sceneName = 'menu';
+        if (this.onBackButtonClick) this.onBackButtonClick();
+        this.cameraController.Move(0);
+        this.objController.Reset();
     }
 
     GetTouchObject() {
@@ -94,7 +114,6 @@ export default class MainScene extends BaceScene {
 
         var ray = new THREE.Raycaster(this.camera.position, pos.sub(this.camera.position).normalize());
 
-        //ヒエラルキーを持った子要素も対象とする場合は第二引数にtrueを指定する
         var touched = ray.intersectObjects(this.scene.children);
         var obj;
 
@@ -124,6 +143,7 @@ export default class MainScene extends BaceScene {
                 this.lookObjNum = 4;
                 break;
         }
+        window.location = './#/menu/' + contentName;
         this.lookObjName = contentName;
         this.cameraController.RotateIndex(this.lookObjNum, this.objects.length);
     }
@@ -158,7 +178,9 @@ export default class MainScene extends BaceScene {
         return obj;
     }
 
+
     Update() {
+
         this.scene.getObjectByName(this.lookObjName).rotateY(this.cursor.deltaX * 0.005);
         requestAnimationFrame(this.Update.bind(this));
     }

@@ -2,6 +2,7 @@ import $ from 'jquery';
 export default class StyleController {
     constructor() {
         this.menu_button = $('menu_button');
+        this.viewContent = false;
         this.init();
     }
 
@@ -34,15 +35,43 @@ export default class StyleController {
         })
     }
 
-    ViewContent(contentId) {
+    OpenContents() {
         this.CloseMenu()
     }
 
+    CloseContents() {
+        this.OpenMenu();
+        $('.content').each(function(){
+            $(this).removeClass('selected_content');
+        })
+    }
+
     CloseMenu() {
+        if (this.viewContent) return;
+        this.viewContent = true;
         $('#title').fadeOut();
         $('#guide').fadeOut();
         $('#menu').fadeOut();
-        $('.filter').animate({ opacity: '0'}, 2000);
+        $('.filter').animate({ opacity: '0' }, 1000, () => {
+            $('.selected_content').fadeIn(1000);
+            $('#main_graphic').css('position','initial');
+            $('.back').fadeIn();
+        });
+
+    }
+
+    OpenMenu() {
+        if (this.viewContent == false) return;
+        this.viewContent = false;
+        $('.content').fadeOut(1000);
+    
+        $('#main_graphic').css('position','initial');  
+        $('.filter').animate({ opacity: '1' }, 1000, () => {
+            $('#title').fadeIn();
+            $('#guide').fadeIn();
+            $('#menu').fadeIn();
+        });
+
     }
 
 }

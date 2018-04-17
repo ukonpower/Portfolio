@@ -12,20 +12,9 @@ class App {
     }
 
     init() {
-        this.mainGraphic = new MainGraphic();
-        this.styleController = new StyleController();
-        $('.button_container').click(this.onMenuButtonClick.bind(this));
+        history.pushState(null,null,null);
+        this.mainGraphic = new MainGraphic(this.styleController);
     }
-
-    onMenuButtonClick(event) {
-        if (!$(event.target).children('.menu_button').hasClass('selected_button')) {
-            this.styleController.ChangeActiveButton($(event.target));
-            this.mainGraphic.CameraRotation($(event.target).attr('id'));
-        }
-    }
-
-
-
 }
 
 $(document).ready(() => new App());

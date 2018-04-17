@@ -4,6 +4,11 @@ export default class ObjectController {
 
     constructor(object) {
         this.object = object;
+        
+        this.defaultSize = this.object.scale.x;
+        this.defaultPosition = this.object.position.y;
+        this.defaultRotation = this.object.rotation.y;
+
         this.baseRotation = 0;
         this.goalRotation = 0;
         this.currentRotation = object.rotation.y;
@@ -11,11 +16,22 @@ export default class ObjectController {
         this.basePosition = 0;
         this.goalPosition = 0;
         this.currentPosition = object.position.y;
-        this.rotateRad = 0;
+
+        this.baseSize = 0;
+        this.goalSize = 0;
+        this.currentSize = object.scale.x;
+
+        this.rotateDistance = 0;
         this.moveDistance = 0;
+        this.sizeDistance = 0;
+
         this.rotX = 1;
         this.posX = 1;
+        this.sizeX = 1;
+
         this.xDelta = 0.01;
+
+        this.moving = false;
         this.Update();
     }
 
@@ -26,10 +42,19 @@ export default class ObjectController {
     }
 
     Move(pos){
-        this.basePosition = this.currentPosition;
+        this.basePosition = this.object.position.y;
         this.goalPosition = pos;
         this.moveDistance = this.goalPosition - this.basePosition;
         this.posX = 0;
+        this.moving = true;
+    }
+
+    SizeChange(size){
+        this.baseSize = this.currentSize;
+        this.goalSize = size;
+        this.sizeDistance = this.goalSize - this.baseSize;
+        this.sizeX = 0;
+        this.moving = true;
     }
 
     RotateIndex(index, length) {
@@ -38,36 +63,52 @@ export default class ObjectController {
         this.baseRotation = this.currentRotation;
         this.goalRotation = -rad * index / length;
 
-        this.rotateRad = this.goalRotation - this.currentRotation
+        this.rotateDistance = this.goalRotation - this.currentRotation
         
-        if (Math.abs(this.rotateRad) <= rad / 2) {
+        if (Math.abs(this.rotateDistance) <= rad / 2) {
             this.rotX = 0;
         } else {
-            console.log(this.rotateRad);
-            if (this.rotateRad < 0)
-                this.rotateRad = this.rotateRad + rad;
+            console.log(this.rotateDistance);
+            if (this.rotateDistance < 0)
+                this.rotateDistance = this.rotateDistance + rad;
             else
-                this.rotateRad = -(rad - this.rotateRad)
+                this.rotateDistance = -(rad - this.rotateDistance)
 
             this.rotX = 0;
         }
+    }
+
+    Reset(){
+        this.Move(this.defaultPosition);
+        this.SizeChange(this.defaultSize);
     }
 
     Update() {
         if (this.rotX < 1) {
             this.object.rotation.y = this.currentRotation;
             this.rotX += this.xDelta;
-            this.currentRotation = this.baseRotation + this.Sigmoid(4, this.rotX) * this.rotateRad;
+            this.currentRotation = this.baseRotation + this.Sigmoid(6, this.rotX) * this.rotateDistance;
         }
 
         if (this.posX < 1) {
-            this.object.position.y = this.currentPosition;
             this.posX += this.xDelta;
-            this.currentPosition = this.basePosition + this.Sigmoid(4, this.posX) * this.moveDistance;
+            this.object.position.y = this.basePosition + this.Sigmoid(6, this.posX) * this.moveDistance;
         }
         
+        if (this.sizeX < 1) {
+            this.object.scale.set(this.currentSize,this.currentSize,this.currentSize);
+            this.sizeX += this.xDelta;
+            this.currentSize = this.baseSize + this.Sigmoid(6, this.sizeX) * this.sizeDistance;
+        } 
+
+        this.CheckFinished();
         requestAnimationFrame(this.Update.bind(this));
     }
 
+    CheckFinished(){
+        if(this.rotX >= 1 && this.posX >= 1 && this.sizeX >= 1){
+            this.moving = false;
+        }
+    }
 
 }

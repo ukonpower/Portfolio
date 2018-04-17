@@ -6,7 +6,7 @@ GLTF2Loader(THREE);
 
 export default class BaceScene {
 
-    constructor(canvas) {
+    constructor() {
         this.scene = new THREE.Scene();
         this.cameraParent = new THREE.Group();
         this.camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 1000);
