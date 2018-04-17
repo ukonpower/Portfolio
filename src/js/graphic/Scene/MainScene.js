@@ -8,9 +8,12 @@ export default class MainScene extends BaceScene {
     constructor() {
         super();
         this.objController;
+        this.objPosY = 1.5; 
         this.objects = new Array();
+
         this.lookObjNum = 0;
         this.lookObjName;
+
         this.tick = 0;
         this.tickSpeed = 2;
         this.sceneName = 'menu';
@@ -66,7 +69,7 @@ export default class MainScene extends BaceScene {
         this.objects.forEach((obj, index) => {
             var rad = Math.PI * 2;
             var theta = rad * index / this.objects.length
-            obj.position.set(Math.sin(theta) * 5, 1.3, -Math.cos(theta) * 5);
+            obj.position.set(Math.sin(theta) * 5, this.objPosY, -Math.cos(theta) * 5);
         });
 
         this.CameraRotation("plofile");
@@ -76,7 +79,6 @@ export default class MainScene extends BaceScene {
     onTap() {
         var activeObject = this.GetTouchObject();
         if (activeObject) {
-            if (this.objController && this.objController.moving) return;
             location.href = "./#/contents/" + activeObject.name;
         }
     }
@@ -85,7 +87,7 @@ export default class MainScene extends BaceScene {
         this.objController = new ObjectController(this.scene.getObjectByName(contentId));
 
         //一度のみ
-        if (this.sceneName != 'menu' || (this.objController && this.objController.moving)) return;
+        if (this.sceneName != 'menu') return;
         this.sceneName = 'contents';
 
         this.cameraController.Move(17.5);
@@ -94,13 +96,15 @@ export default class MainScene extends BaceScene {
     }
 
     CloseContents() {
-
         //一度のみ
-        if (this.sceneName != 'contents' || (this.objController && this.objController.moving)) return;
+        if (this.sceneName != 'contents') return false;
         this.sceneName = 'menu';
 
         this.cameraController.Move(0);
-        this.objController.Reset();
+        this.objController.Move(this.objPosY);
+        this.objController.SizeChange(1);
+
+        return true;
     }
 
     GetTouchObject() {
@@ -144,7 +148,6 @@ export default class MainScene extends BaceScene {
                 this.lookObjNum = 4;
                 break;
         }
-        window.location = './#/menu/' + contentName;
         this.lookObjName = contentName;
         this.cameraController.RotateIndex(this.lookObjNum, this.objects.length);
     }
@@ -179,9 +182,17 @@ export default class MainScene extends BaceScene {
         return obj;
     }
 
+    CheckObjectMoving(){
+        if(this.objController && this.objController.moving){
+            if(this.objController.Moving) return true;
+            else return false;
+        }
+    }
+
 
     Update() {
-
+        if(this.objController) this.objController.Update();
+        if(this.cameraController) this.cameraController.Update();
         this.scene.getObjectByName(this.lookObjName).rotateY(this.cursor.deltaX * 0.005);
         requestAnimationFrame(this.Update.bind(this));
     }

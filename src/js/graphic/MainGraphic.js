@@ -32,9 +32,10 @@ export default class MainGraphic extends Graphic {
             window.addEventListener('mouseup', this.currentScene.onTouchEnd.bind(this.currentScene));
         }
 
-        window.addEventListener('hashchange',this.onHashChange.bind(this));
-        $('.back').on('click', () => {
-            window.history.back(1);
+        window.addEventListener('hashchange', this.onHashChange.bind(this));
+
+        $('.back').on('click', (event) => {
+            window.location = './#/menu/' + $(event.target).parent().attr('id');
         })
 
         $('.button_container').click(this.onMenuButtonClick.bind(this));
@@ -43,36 +44,34 @@ export default class MainGraphic extends Graphic {
 
     onMenuButtonClick(event) {
         if (!$(event.target).children('.menu_button').hasClass('selected_button')) {
-            this.styleController.ChangeActiveButton($(event.target));
-            this.CameraRotation($(event.target).attr('id'));
+            window.location = './#/menu/' + $(event.target).attr('id').split('_')[0];
         }
     }
 
     OpenContents(contentId) {
         $('#' + contentId).addClass('selected_content');
         this.styleController.OpenContents();
+
+        this.currentScene.CameraRotation(contentId);
         this.currentScene.OpenContents(contentId);
     }
 
     CloseContents(contentId) {
-        this.styleController.CloseContents();
         this.currentScene.CloseContents();
         this.currentScene.CameraRotation(contentId);
+        this.styleController.CloseContents();
+        this.styleController.ChangeActiveButton($('#' + contentId + "_button"));
     }
 
-    onHashChange(event){
-        console.log(event);
-        console.log(window.location);
+    onHashChange(event) {
         var hashArray = window.location.hash.split('/');
 
         console.log(hashArray);
-        if(hashArray[1] == 'menu'){
+        if (hashArray[1] == 'menu') {
             this.CloseContents(hashArray[2]);
         }
 
-        if(hashArray[1] == 'contents'){
-            console.log("contents");
-            console.log(hashArray[2]);
+        if (hashArray[1] == 'contents') {
             this.OpenContents(hashArray[2]);
         }
     }

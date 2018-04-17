@@ -10,6 +10,8 @@ export default class StyleController {
     }
 
     ChangeActiveButton(activeBtn) {
+        console.log(activeBtn);
+        
         //アクティブボタンを変更
         $('.menu_button').each(function () {
             $(this).removeClass('selected_button');

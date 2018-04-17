@@ -46,7 +46,6 @@ export default class ObjectController {
         this.goalPosition = pos;
         this.moveDistance = this.goalPosition - this.basePosition;
         this.posX = 0;
-        this.moving = true;
     }
 
     SizeChange(size){
@@ -54,7 +53,6 @@ export default class ObjectController {
         this.goalSize = size;
         this.sizeDistance = this.goalSize - this.baseSize;
         this.sizeX = 0;
-        this.moving = true;
     }
 
     RotateIndex(index, length) {
@@ -64,18 +62,19 @@ export default class ObjectController {
         this.goalRotation = -rad * index / length;
 
         this.rotateDistance = this.goalRotation - this.currentRotation
-        
-        if (Math.abs(this.rotateDistance) <= rad / 2) {
-            this.rotX = 0;
-        } else {
-            console.log(this.rotateDistance);
-            if (this.rotateDistance < 0)
-                this.rotateDistance = this.rotateDistance + rad;
-            else
-                this.rotateDistance = -(rad - this.rotateDistance)
+        this.rotX = 0;
 
-            this.rotX = 0;
-        }
+        // if (Math.abs(this.rotateDistance) <= rad / 2) {
+        //     this.rotX = 0;
+        // } else {
+        //     console.log(this.rotateDistance);
+        //     if (this.rotateDistance < 0)
+        //         this.rotateDistance = this.rotateDistance + rad;
+        //     else
+        //         this.rotateDistance = -(rad - this.rotateDistance)
+
+        //     this.rotX = 0;
+        // }
     }
 
     Reset(){
@@ -101,14 +100,12 @@ export default class ObjectController {
             this.currentSize = this.baseSize + this.Sigmoid(6, this.sizeX) * this.sizeDistance;
         } 
 
-        this.CheckFinished();
-        requestAnimationFrame(this.Update.bind(this));
+        // requestAnimationFrame(this.Update.bind(this));
     }
 
-    CheckFinished(){
-        if(this.rotX >= 1 && this.posX >= 1 && this.sizeX >= 1){
-            this.moving = false;
-        }
+    get Moving(){
+        if(this.rotX >= 1 && this.posX >= 1 && this.sizeX >= 1) return false;
+        else return true;
     }
 
 }

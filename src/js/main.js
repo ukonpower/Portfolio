@@ -12,7 +12,6 @@ class App {
     }
 
     init() {
-        history.pushState(null,null,null);
         this.mainGraphic = new MainGraphic(this.styleController);
     }
 }
