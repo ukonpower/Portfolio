@@ -19,8 +19,8 @@ export default class MainGraphic extends Graphic {
         this.canvas.prepend(this.renderer.domElement);
         this.canvas.children('canvas').css('position', 'absolute');
 
-        this.currentScene.onOpenContents = this.onOpenContents.bind(this);
-        this.currentScene.onBackButtonClisk = this.onCloseContents.bind(this);
+        this.currentScene.onOpenContents = this.OpenContents.bind(this);
+        this.currentScene.onBackButtonClisk = this.CloseContents.bind(this);
 
         if (this.userAgent.indexOf("iPhone") >= 0 || this.userAgent.indexOf("iPad") >= 0 || this.userAgent.indexOf("Android") >= 0) {
             window.addEventListener('touchstart', this.currentScene.onTouchStart.bind(this.currentScene));
@@ -48,23 +48,32 @@ export default class MainGraphic extends Graphic {
         }
     }
 
-    onOpenContents(contentId) {
+    OpenContents(contentId) {
         $('#' + contentId).addClass('selected_content');
-        location.href = "./#/contents/" + contentId;
         this.styleController.OpenContents();
+        this.currentScene.OpenContents(contentId);
     }
 
-    onCloseContents() {
+    CloseContents(contentId) {
         this.styleController.CloseContents();
+        this.currentScene.CloseContents();
+        this.currentScene.CameraRotation(contentId);
     }
 
     onHashChange(event){
         console.log(event);
         console.log(window.location);
-        
-    }
+        var hashArray = window.location.hash.split('/');
 
-    CameraRotation(contentName) {
-        this.currentScene.CameraRotation(contentName.split('_')[0]);
+        console.log(hashArray);
+        if(hashArray[1] == 'menu'){
+            this.CloseContents(hashArray[2]);
+        }
+
+        if(hashArray[1] == 'contents'){
+            console.log("contents");
+            console.log(hashArray[2]);
+            this.OpenContents(hashArray[2]);
+        }
     }
 }

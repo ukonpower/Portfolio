@@ -15,8 +15,6 @@ export default class MainScene extends BaceScene {
         this.tickSpeed = 2;
         this.sceneName = 'menu';
 
-        this.onOpenContents;
-        this.onBackButtonClick;
         this.init();
     }
 
@@ -79,25 +77,28 @@ export default class MainScene extends BaceScene {
         var activeObject = this.GetTouchObject();
         if (activeObject) {
             if (this.objController && this.objController.moving) return;
-            this.objController = new ObjectController(this.scene.getObjectByName(activeObject.name));
-            this.OpenContents();
+            location.href = "./#/contents/" + activeObject.name;
         }
     }
 
-    OpenContents() {
-        location.href = "./#/" + this.objController.object.name;
+    OpenContents(contentId) {
+        this.objController = new ObjectController(this.scene.getObjectByName(contentId));
+
+        //一度のみ
         if (this.sceneName != 'menu' || (this.objController && this.objController.moving)) return;
         this.sceneName = 'contents';
-        if (this.onOpenContents) this.onOpenContents(this.objController.object.name);
+
         this.cameraController.Move(17.5);
         this.objController.Move(20);
         this.objController.SizeChange(0.5);
     }
 
     CloseContents() {
+
+        //一度のみ
         if (this.sceneName != 'contents' || (this.objController && this.objController.moving)) return;
         this.sceneName = 'menu';
-        if (this.onBackButtonClick) this.onBackButtonClick();
+
         this.cameraController.Move(0);
         this.objController.Reset();
     }
