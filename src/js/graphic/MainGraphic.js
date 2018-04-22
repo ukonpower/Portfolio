@@ -11,10 +11,13 @@ export default class MainGraphic extends Graphic {
         this.styleController = new StyleController();
         this.canvas = $('#main_graphic');
         this.canvas.css('height', innerHeight);
+        this.onHashChange();
         this.init();
     }
 
     init() {
+        // if(window.location != location.protocol + "//" + location.host + location.pathname + location.search)window.locationwindow.location = location.protocol + "//" + location.host + location.pathname + location.search;
+       
         this.renderer.setSize(this.canvas.innerWidth(), this.canvas.innerHeight());
         this.canvas.prepend(this.renderer.domElement);
         this.canvas.children('canvas').css('position', 'absolute');
@@ -40,6 +43,15 @@ export default class MainGraphic extends Graphic {
 
         $('.button_container').click(this.onMenuButtonClick.bind(this));
         this.Update();
+
+        $('#guide').click((event) =>{
+            var name = $(event.target).html();
+            window.location = './#/contents/' + name.toLowerCase();
+        });
+
+        $(window).on('load',()=>{
+            $('#loading').fadeOut(1500);
+        })
     }
 
     onMenuButtonClick(event) {
@@ -65,8 +77,6 @@ export default class MainGraphic extends Graphic {
 
     onHashChange(event) {
         var hashArray = window.location.hash.split('/');
-
-        console.log(hashArray);
         if (hashArray[1] == 'menu') {
             this.CloseContents(hashArray[2]);
         }

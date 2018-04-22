@@ -1,9 +1,11 @@
-import * as THREE from 'three'
-import GLTF2Loader from 'three-gltf2-loader'
+import '@babel/polyfill';
+import * as THREE from 'three';
+import GLTF2Loader from 'three-gltf2-loader';
 import Cursor from '../Cursor';
 import ObjectController from '../../ObjectController';
-GLTF2Loader(THREE);
 
+GLTF2Loader(THREE);
+window.THREE = THREE;
 export default class BaceScene {
 
     constructor() {
@@ -16,22 +18,53 @@ export default class BaceScene {
         this.clock = new THREE.Clock();
         this.cursor = new Cursor();
 
-        var envMapPath = '../Textures/EnvMap/';
+        this.objPosY = 1.3;
+
+        var envMapPath = './Textures/EnvMap/';
         this.cubeTexture = new THREE.CubeTextureLoader().load([
-            envMapPath + 'right.png',
-            envMapPath + 'left.png',
-            envMapPath + 'up.png',
-            envMapPath + 'down.png',
-            envMapPath + 'front.png',
-            envMapPath + 'back.png'
+            envMapPath + 'right.jpg',
+            envMapPath + 'left.jpg',
+            envMapPath + 'up.jpg',
+            envMapPath + 'down.jpg',
+            envMapPath + 'front.jpg',
+            envMapPath + 'back.jpg'
         ]);
 
         this.scene.add(this.cameraParent);
         this.cameraParent.add(this.camera);
+        window.scene = this.scene;
     }
 
     Update() {
 
+    }
+
+    async loadGLTF(contentName,index) {
+        var loader = new THREE.GLTFLoader()
+        var object;
+        
+        loader.load('./models/' + contentName + '.glb', gltf => {
+            object = gltf.scene;
+            var animations = gltf.animations;
+            
+            object.traverse((child) => {
+                if (child.isMesh) {
+                    child.material.envMap = this.cubeTexture;
+                }
+            });
+            
+            if (animations && animations.length) {
+                this.mixers.unshift(new THREE.AnimationMixer(object));
+                this.mixers[0].clipAction(animations[0]).play();
+            }
+            var rad = Math.PI * 2;
+            var theta = rad * index / this.objects.length;
+            object.position.set(Math.sin(theta) * 5, this.objPosY, -Math.cos(theta) * 5);
+            object.rotation.set(0,-theta,0)
+            object.name = contentName;
+            
+            this.scene.add(object);
+        });
     }
 
     Resize(width, height) {

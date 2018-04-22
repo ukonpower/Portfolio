@@ -6,12 +6,17 @@ ul{
     height: 100%;
 }
 
+li{
+    list-style: none;
+}
+
 html,body{
     position: absolute;
     overflow: inherit;
     width: 100%;
     height: 100%;
     margin: 0;
+    font-family: "Rounded Mplus 1c";
 }
 
 .font{
@@ -24,8 +29,8 @@ html,body{
 }
 
 img{
+    position: relative;
     width: 100%;
-    margin: 20px 0;
     border-radius: 3px 3px;
 }
 
@@ -95,7 +100,6 @@ canvas{
 
 #menu li{
     position: relative;
-    list-style: none;
     float: left;
     width: 20%;
     height: 50px;
@@ -123,7 +127,7 @@ canvas{
     width: 100%;
     position: absolute;
     left: 0; right: 0;
-    top: 20%;
+    top: 25%;
 }
 
 #contents{
@@ -137,7 +141,7 @@ canvas{
 
 .content{
     z-index: 99;
-    margin: 10px 0;
+    margin: 10px auto;
     width: 95%;
     padding: 30px 10px;
     display: none;
@@ -149,6 +153,114 @@ canvas{
     margin: 0 auto;
     padding: 8px;
     text-align: center;
-    border: solid 2px black;
     font-size: 25pt;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+
+}
+
+.picture_content, .movie_content, .software_content,.plofile_content,.roots_content{
+    text-align: center;
+    width: 97%;
+    margin: 50px auto;
+}
+
+.main_picture{
+    display: block;
+    width: 95%;
+    margin: 5px auto;
+    margin-top: 20px;
+}
+
+.sub_picture{
+    display: table;
+    width: 100%;
+}
+
+.sub_picture img{
+    width: 45%;
+    margin: 2.5%;
+}
+.description{
+    position: relative;
+    width: 95%;
+    margin: 5px auto;
+    text-align: center;
+}
+
+.picture_title, .movie_title, .software_title{
+    font-size: 20pt;
+    padding: 5px;
+    border-bottom: solid 1px black;
+}
+
+.text{
+    text-align: center;
+    font-size: 10pt;
+    margin: 10px;
+}
+.date{
+    margin: 5px;
+}
+
+.video{
+    width: 95%;
+}
+
+.video{
+    position: relative;
+    padding-top: 56.25%;
+    margin: 0 auto;
+}
+
+.video iframe{
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sub_description{
+    display: inline-block;
+    position: relative;
+    width: 47%;
+    margin: 10px 0;
+}
+
+.sub_description img{
+    width: 100%;
+}
+
+.sub_description .text{
+    text-align: center;
+    width: 100%;
+    display: table-cell;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#loading{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    z-index: 1000;
+}
+
+
+@media screen and (min-width:900px){
+    .content{
+        width: 60%;
+    }
+
+    #guide{
+        width: 15%;
+    }
+
+    .sub_title{
+        width: 30%;
+    }
 }

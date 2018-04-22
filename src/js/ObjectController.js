@@ -34,6 +34,11 @@ export default class ObjectController {
         this.moving = false;
         this.Update();
     }
+    
+    set delta(value){
+        if(value > 0) this.xDelta = value;
+        else this.xDelta = 0.01;
+    }
 
     Sigmoid(a, x) {
         var e1 = Math.exp(-a * (2 * x - 1));

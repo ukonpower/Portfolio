@@ -13,6 +13,10 @@ class App {
 
     init() {
         this.mainGraphic = new MainGraphic(this.styleController);
+        $('img').click((event)=>{
+            window.location = $(event.target).attr('src');
+            console.log($(this));
+        })
     }
 }
 

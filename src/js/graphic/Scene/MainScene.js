@@ -8,11 +8,10 @@ export default class MainScene extends BaceScene {
     constructor() {
         super();
         this.objController;
-        this.objPosY = 1.5; 
-        this.objects = new Array();
+        this.objects = ["plofile",'pictures','movies','softwares','roots'];
 
         this.lookObjNum = 0;
-        this.lookObjName;
+        this.lookObjName = this.objects[this.lookObjName];
 
         this.tick = 0;
         this.tickSpeed = 2;
@@ -25,18 +24,28 @@ export default class MainScene extends BaceScene {
         this.cursor.tapEvent = this.onTap.bind(this);
 
         this.scene.background = new THREE.Color(0xffffff);
-        this.scene.fog = new THREE.Fog(this.scene.background, 1, 15);
+        this.scene.fog = new THREE.Fog(this.scene.background, 1, 30);
 
         this.camera.position.set(0, 2.5, 0)
-        this.camera.rotation.set(-Math.PI / 10, 0, 0);
+        this.camera.rotation.set(-Math.PI / 13, 0, 0);
 
-        var light = new THREE.AmbientLight(0xffffff, 0.8);
+        var light = new THREE.AmbientLight(0xffffff, 0.4);
         light.position.set(2, 2, 2);
         light.castShadow = false;
         this.scene.add(light);
 
-        light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(4, 10, 5);
+        light = new THREE.PointLight(0xffffff,0.1);
+        light.position.set(0,3,0);
+        light.castShadow = false;
+        this.scene.add(light);
+
+        light = new THREE.PointLight(0xffffff,0.2);
+        light.position.set(0,0.1,0);
+        light.castShadow = false;
+        this.scene.add(light);
+
+        light = new THREE.DirectionalLight(0xffffff,1);
+        light.position.set(4, 15, 2.5);
         light.castShadow = true;
 
         var shadowSize = 7;
@@ -60,26 +69,21 @@ export default class MainScene extends BaceScene {
         plane.name = "plane";
         this.scene.add(plane);
 
-        this.objects.push(this.CreateModel('plofile'));
-        this.objects.push(this.CreateModel('pictures'));
-        this.objects.push(this.CreateModel('movies'));
-        this.objects.push(this.CreateModel('softwares'));
-        this.objects.push(this.CreateModel('roots'));
+        this.loadGLTF('plofile',0);
+        this.loadGLTF('pictures',1);
+        this.loadGLTF('movies',2);
+        this.loadGLTF('softwares',3);
+        this.loadGLTF('plofile',4);
 
-        this.objects.forEach((obj, index) => {
-            var rad = Math.PI * 2;
-            var theta = rad * index / this.objects.length
-            obj.position.set(Math.sin(theta) * 5, this.objPosY, -Math.cos(theta) * 5);
-        });
+        console.log(this.objects);  
 
-        this.CameraRotation("plofile");
         this.Update();
     }
 
     onTap() {
         var activeObject = this.GetTouchObject();
         if (activeObject) {
-            location.href = "./#/contents/" + activeObject.name;
+            location.href = "./#/contents/" + this.lookObjName;
         }
     }
 
@@ -90,8 +94,11 @@ export default class MainScene extends BaceScene {
         if (this.sceneName != 'menu') return;
         this.sceneName = 'contents';
 
+        this.cameraController.delta = 0.01;
         this.cameraController.Move(17.5);
-        this.objController.Move(20);
+
+        this.objController.delta = 0.01;
+        this.objController.Move(20.3);
         this.objController.SizeChange(0.5);
     }
 
@@ -100,7 +107,10 @@ export default class MainScene extends BaceScene {
         if (this.sceneName != 'contents') return false;
         this.sceneName = 'menu';
 
+        this.cameraController.delta = 0.01;
         this.cameraController.Move(0);
+
+        this.objController.delta = 0.01;
         this.objController.Move(this.objPosY);
         this.objController.SizeChange(1);
 
@@ -119,14 +129,15 @@ export default class MainScene extends BaceScene {
 
         var ray = new THREE.Raycaster(this.camera.position, pos.sub(this.camera.position).normalize());
 
-        var touched = ray.intersectObjects(this.scene.children);
+        var touched = ray.intersectObjects(this.scene.children,true);
         var obj;
-
+        
         touched.forEach((n, index) => {
             if (n.object.name != "plane") {
                 obj = n.object;
             }
         })
+        
         return obj;
     }
 
@@ -152,7 +163,7 @@ export default class MainScene extends BaceScene {
         this.cameraController.RotateIndex(this.lookObjNum, this.objects.length);
     }
 
-    CreateModel(contentName) {
+    CreateModel(contentName,index) {
         var geometry;
         switch (contentName) {
             case "plofile":
@@ -178,22 +189,28 @@ export default class MainScene extends BaceScene {
         var obj = new THREE.Mesh(geometry, material);
         obj.castShadow = true;
         obj.name = contentName;
+        
+        var rad = Math.PI * 2;
+        var theta = rad * index / this.objects.length;
+        obj.position.set(Math.sin(theta) * 5, this.objPosY, -Math.cos(theta) * 5);
+        obj.rotation.set(0,-theta,0)
+        obj.name = contentName;
+
         this.scene.add(obj);
         return obj;
     }
 
-    CheckObjectMoving(){
-        if(this.objController && this.objController.moving){
-            if(this.objController.Moving) return true;
+    CheckObjectMoving() {
+        if (this.objController && this.objController.moving) {
+            if (this.objController.Moving) return true;
             else return false;
         }
     }
 
-
     Update() {
-        if(this.objController) this.objController.Update();
-        if(this.cameraController) this.cameraController.Update();
-        this.scene.getObjectByName(this.lookObjName).rotateY(this.cursor.deltaX * 0.005);
+        if (this.objController) this.objController.Update();
+        if (this.cameraController) this.cameraController.Update();
+        if(this.scene.getObjectByName(this.lookObjName))this.scene.getObjectByName(this.lookObjName).rotateY(this.cursor.deltaX * 0.005);
         requestAnimationFrame(this.Update.bind(this));
     }
 
