@@ -5,6 +5,7 @@ import webpackConfig from './webpack.config.js';
 import autoprefixer from 'gulp-autoprefixer';
 import plumber from 'gulp-plumber';
 import browserSync from 'browser-sync'
+import { rename } from 'fs';
 
 gulp.task("webpack", () => {
     return webpackStream(webpackConfig,webpack)
@@ -31,11 +32,23 @@ gulp.task('browser-sync', () =>{
     });
 });
 
+gulp.task('html-copy',() =>{
+    return gulp.src(['./src/html/**/*.html'],{base: './src/html'})
+    .pipe(gulp.dest('./public/'));
+});
+
+gulp.task('src-copy',() =>{
+    return gulp.src(['./src/**/*'],{base: './src/'})
+    .pipe(gulp.dest('./public/'));
+});
+
 gulp.task('bs-reload', () =>{
     browserSync.reload();
 })
 
 gulp.task('default',['browser-sync'],() => {
+    gulp.watch('./src/**/*',['src-copy']);
+    gulp.watch('./src/**/*.html',['html-copy']);
     gulp.watch('./src/js/**/*.js',['webpack']);
     gulp.watch('./src/css/*.css',['autoprefix']);
     gulp.watch('./public/**/*',['bs-reload']);
