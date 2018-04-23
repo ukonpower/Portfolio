@@ -14,14 +14,34 @@
     <!-- textfont -->
     <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
 
+    <!-- font awsom-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
     <meta name="viewport" content="width=device-width,user-scalable=0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112004110-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-112004110-2');
+    </script>
 
 </head>
 
 <body>
     <script src="./js/script.js"></script>
 
-    <div id="loading"></div>
+    <div id="loading">
+        <div id='load_anime'>
+            <div class="circle anm1"></div>
+            <div class="circle anm2"></div>
+            <div class="circle anm3"></div>
+        </div>
+    </div>
+
     <div id="main_graphic">
         <div class="filter">
             <div id="title" class="font">Obshi</div>
@@ -54,14 +74,28 @@
 
             <li id="plofile" class="content">
                 <div class="sub_title font">Plofile</div>
-                <div class="plofile_content"> 
-                    右近良平です。<br>
-                    大学生２年<br>
+                <div class="plofile_content">
+                    <img id="icon" src="./img/plofile/icon_mini.png" alt="icon"> 右近良平です。
+                    <br> 大学生２年
                     <br>
-                    CGはだいたいBlender使ってます。<br>
-                    「Obshi」はハンドルネームです。<br>
-                    由来は特にないです。
+                    <br> 「Obshi」はハンドルネームです。
+                    <br> 並みのプログラミング力とCG力があります。
+                    <br>
+                    <br> 楽しいことをしたいので、なんでも声かけてください。
+                    <br>
+
+
+                    <div class="sns">
+                        <a id="twitter" class="fa fa-twitter fa-lg" aria-hidden="true" href="https://twitter.com/uksksan"></a>
+                        <a id="facebook" class="fa fa-facebook-official fa-lg" aria-hidden="true" href="https://www.facebook.com/profile.php?id=100010703025139"></a>
+                        <a id="youtube" class="fa fa-youtube-play fa-lg" aria-hidden="true" href="https://www.youtube.com/channel/UC5VH-OrfhFGLZkrv9Na3Dpw?view_as=subscriber"></a>
+                        <a id="github" class="fa fa-github fa-lg" aria-hidden="true" href="https://github.com/Obshi"></a>
+                    </div>
+
                 </div>
+
+
+
                 <div class="font border back">Back</div>
             </li>
 
@@ -165,7 +199,7 @@
 
                 <div class="movie_content">
                     <div class="video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Hs6EC6t169g?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0"
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Hs6EC6t169g?rel=0&amp&amp;showinfo=0" frameborder="0"
                             allow="encrypted-media" allowfullscreen></iframe>
                     </div>
 
@@ -176,7 +210,7 @@
                             <br>合成とアニメーションに関しては今まででトップな出来であるかなと。カメラワークもすき。
                         </div>
                         <div class="video">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/cJmLcvy1-Ps?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0"
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/cJmLcvy1-Ps?rel=0&amp&amp;showinfo=0" frameborder="0"
                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                         <div class="text">こういうの載せるとかっこいいよね
@@ -314,7 +348,7 @@
                         </div>
                         <div class="sub_description">
                             <img src="./img/softwares/nnkadai/nnkadaigame.png" alt="picture">
-                            <div class="text">どこかにゲームが隠されているかも... 
+                            <div class="text">どこかにゲームが隠されているかも...
                                 <br>そういえばウィンドウサイズが変えられるようになってるな...</div>
                             <!-- ウィンドウを右にいっぱい伸ばしてみてください -->
                         </div>
@@ -359,7 +393,13 @@
 
             <li id="roots" class="content">
                 <div class="sub_title font">Roots</div>
-                <div class="roots_content"> </div>
+                <div class="roots_content">
+                    <div id="roots_text">
+                        このホームページは一つの作品として製作しました。
+                        <br>
+                        <br> ©️2018 Obshi.
+                    </div>
+                </div>
                 <div class="font border back">Back</div>
             </li>
 

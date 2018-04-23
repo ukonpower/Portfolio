@@ -9,6 +9,7 @@ window.THREE = THREE;
 export default class BaceScene {
 
     constructor() {
+        
         this.scene = new THREE.Scene();
         this.cameraParent = new THREE.Group();
         this.camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 1000);
@@ -50,6 +51,7 @@ export default class BaceScene {
             object.traverse((child) => {
                 if (child.isMesh) {
                     child.material.envMap = this.cubeTexture;
+                    child.material.reflectivity = 5;
                 }
             });
             

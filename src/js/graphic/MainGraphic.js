@@ -25,16 +25,6 @@ export default class MainGraphic extends Graphic {
         this.currentScene.onOpenContents = this.OpenContents.bind(this);
         this.currentScene.onBackButtonClisk = this.CloseContents.bind(this);
 
-        if (this.userAgent.indexOf("iPhone") >= 0 || this.userAgent.indexOf("iPad") >= 0 || this.userAgent.indexOf("Android") >= 0) {
-            window.addEventListener('touchstart', this.currentScene.onTouchStart.bind(this.currentScene));
-            window.addEventListener('touchmove', this.currentScene.onTouchMove.bind(this.currentScene));
-            window.addEventListener('touchend', this.currentScene.onTouchEnd.bind(this.currentScene));
-        } else {
-            window.addEventListener('mousedown', this.currentScene.onTouchStart.bind(this.currentScene));
-            window.addEventListener('mousemove', this.currentScene.onTouchMove.bind(this.currentScene));
-            window.addEventListener('mouseup', this.currentScene.onTouchEnd.bind(this.currentScene));
-        }
-
         window.addEventListener('hashchange', this.onHashChange.bind(this));
 
         $('.back').on('click', (event) => {
@@ -50,7 +40,18 @@ export default class MainGraphic extends Graphic {
         });
 
         $(window).on('load',()=>{
+            $('#load_anime').fadeOut(100);
             $('#loading').fadeOut(1500);
+            
+            if (this.userAgent.indexOf("iPhone") >= 0 || this.userAgent.indexOf("iPad") >= 0 || this.userAgent.indexOf("Android") >= 0) {
+                window.addEventListener('touchstart', this.currentScene.onTouchStart.bind(this.currentScene));
+                window.addEventListener('touchmove', this.currentScene.onTouchMove.bind(this.currentScene));
+                window.addEventListener('touchend', this.currentScene.onTouchEnd.bind(this.currentScene));
+            } else {
+                window.addEventListener('mousedown', this.currentScene.onTouchStart.bind(this.currentScene));
+                window.addEventListener('mousemove', this.currentScene.onTouchMove.bind(this.currentScene));
+                window.addEventListener('mouseup', this.currentScene.onTouchEnd.bind(this.currentScene));
+            }
         })
     }
 
@@ -76,6 +77,8 @@ export default class MainGraphic extends Graphic {
     }
 
     onHashChange(event) {
+        console.log('hash changed');
+        
         var hashArray = window.location.hash.split('/');
         if (hashArray[1] == 'menu') {
             this.CloseContents(hashArray[2]);

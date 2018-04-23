@@ -80,7 +80,6 @@ canvas{
 
 .back{
     position: relative;
-    text-align: center;
     width: 20%;
     padding: 5px 10px;
     margin: 0 auto;
@@ -144,6 +143,7 @@ canvas{
     margin: 10px auto;
     width: 95%;
     padding: 30px 10px;
+    text-align: center;
     display: none;
 }
 
@@ -196,7 +196,7 @@ canvas{
 
 .text{
     text-align: center;
-    font-size: 10pt;
+    font-size: 11pt;
     margin: 10px;
 }
 .date{
@@ -243,6 +243,7 @@ canvas{
 }
 
 #loading{
+    pointer-events: none;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -250,12 +251,97 @@ canvas{
     z-index: 1000;
 }
 
+#load_anime{
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    display: block;
+    left: 0;right: 0;
+    top: 0;bottom: 0;
+    margin: auto;
+    text-align: center;
+}
 
-@media screen and (min-width:900px){
-    .content{
-        width: 60%;
+.circle{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-color: black;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.anm1{
+
+    animation: scale .75s -.20s infinite cubic-bezier(.2,.68,.18,1.08);
+}
+
+.anm2{
+
+    animation: scale .75s -.10s infinite cubic-bezier(.2,.68,.18,1.08);
+}
+
+.anm3{
+
+    animation: scale .75s -.0s infinite cubic-bezier(.2,.68,.18,1.08);
+}
+
+@keyframes scale{
+    30%{
+        transform: scale(.3);
     }
 
+    100%{
+        transform: scale(1);
+    }
+}
+
+.sns{
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.sns a{
+    text-decoration: none;
+    color: black;
+    margin: 0px 3%;
+    transition: 0.3s;
+}
+
+#twitter:hover{
+    color: rgb(0, 195, 255);
+}
+
+#facebook:hover{
+    color: rgb(45, 106, 185);
+}
+
+#youtube:hover{
+    color: rgb(214, 16, 16);
+}
+
+#github:hover{
+    color: rgb(139, 139, 139);
+}
+
+#icon{
+    display: block;
+    width: 40%;
+    margin: 30px auto;
+}
+
+#roots_text{
+    font-size: 9pt;
+}
+@media screen and (min-width:900px){
+    .content{
+        width: 40%;
+    }
+
+    #icon{
+        width: 20%;
+    }
     #guide{
         width: 15%;
     }

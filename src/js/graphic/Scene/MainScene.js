@@ -21,6 +21,7 @@ export default class MainScene extends BaceScene {
     }
 
     init() {
+        
         this.cursor.tapEvent = this.onTap.bind(this);
 
         this.scene.background = new THREE.Color(0xffffff);
@@ -44,7 +45,13 @@ export default class MainScene extends BaceScene {
         light.castShadow = false;
         this.scene.add(light);
 
-        light = new THREE.DirectionalLight(0xffffff,1);
+        light = new THREE.PointLight(0xffffff,0.4);
+        light.position.set(0,19,0);
+        light.castShadow = false;
+        this.scene.add(light);
+        
+
+        light = new THREE.DirectionalLight(0xffffff,0.5);
         light.position.set(4, 15, 2.5);
         light.castShadow = true;
 
@@ -73,9 +80,7 @@ export default class MainScene extends BaceScene {
         this.loadGLTF('pictures',1);
         this.loadGLTF('movies',2);
         this.loadGLTF('softwares',3);
-        this.loadGLTF('plofile',4);
-
-        console.log(this.objects);  
+        this.loadGLTF('roots',4);
 
         this.Update();
     }
@@ -210,6 +215,7 @@ export default class MainScene extends BaceScene {
     Update() {
         if (this.objController) this.objController.Update();
         if (this.cameraController) this.cameraController.Update();
+        
         if(this.scene.getObjectByName(this.lookObjName))this.scene.getObjectByName(this.lookObjName).rotateY(this.cursor.deltaX * 0.005);
         requestAnimationFrame(this.Update.bind(this));
     }
