@@ -97,7 +97,7 @@ export default class StyleController {
             } 
         });
     
-        $('img,.description,.video,.sub_description').each(function(){
+        $('img,.description,.video,.text').each(function(){
             var window_height = $window.height();
             var scroll = $window.scrollTop();
             var pos = $(this).offset().top;
