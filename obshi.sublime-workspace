@@ -1,0 +1,622 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"per",
+				"permalink_link〔function〕"
+			],
+			[
+				"src",
+				"screen\t(style.scss)"
+			],
+			[
+				"oap",
+				"opacity\topacity()"
+			],
+			[
+				"inclu",
+				"include\t@include"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"gettemp",
+				"get_template_directory_uri〔function〕"
+			],
+			[
+				"filetime",
+				"filectime〔function〕"
+			],
+			[
+				"geturl",
+				"get_home_url〔function〕"
+			],
+			[
+				"file",
+				"filemtime〔function〕"
+			],
+			[
+				"getsumbna",
+				"get_the_post_thumbnail〔function〕"
+			],
+			[
+				"get_the_cate",
+				"get_the_category_by_id"
+			],
+			[
+				"getcatnam",
+				"get_cat_name〔function〕"
+			],
+			[
+				"cs",
+				"scss/"
+			],
+			[
+				"que",
+				"$query〔variable〕"
+			],
+			[
+				"arg",
+				"$args〔variable〕"
+			],
+			[
+				"registerpost",
+				"register_post_type〔function〕"
+			],
+			[
+				"the_par",
+				"the_permalink"
+			],
+			[
+				"body",
+				"body\tTag"
+			],
+			[
+				"doc",
+				"doctype\tDOCTYPE HTML"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/js/graphic/Scene/MainScene.js",
+			"settings":
+			{
+				"buffer_size": 6623,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"packages",
+				"Package Control: List Packages"
+			],
+			[
+				"package",
+				"View Package File"
+			],
+			[
+				"index",
+				"Indexing Status"
+			],
+			[
+				"close",
+				"File: Close All"
+			],
+			[
+				"closeall",
+				"File: Close All"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"del",
+				"File: Delete"
+			],
+			[
+				"d",
+				"File: Delete"
+			],
+			[
+				"file clo",
+				"File: Close All"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pakcage",
+				"Package Control: Remove Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/obshi/Documents/Web/Obshi",
+		"/Users/obshi/Documents/Web/Obshi/src",
+		"/Users/obshi/Documents/Web/Obshi/src/js",
+		"/Users/obshi/Documents/Web/Obshi/src/js/graphic",
+		"/Users/obshi/Documents/Web/Obshi/src/js/graphic/Scene"
+	],
+	"file_history":
+	[
+		"/Users/obshi/Documents/Web/graphics/graphics.sublime-project",
+		"/Users/obshi/Documents/Web/graphics/.docker/.wordpress/index.php",
+		"/Users/obshi/Desktop/main.txt",
+		"/Users/obshi/Documents/Web/graphics/gulpfile.babel.js",
+		"/Users/obshi/Documents/Web/graphics/themes/s/scss/common.scss",
+		"/Users/obshi/Documents/Web/graphics/themes/s/header.php",
+		"/Users/obshi/Documents/Web/graphics/themes/s/items/article.php",
+		"/Users/obshi/Documents/Web/graphics/src/js/main.js",
+		"/Users/obshi/Documents/Web/graphics/themes/s/scss/single.scss",
+		"/Users/obshi/Documents/Web/graphics/themes/s/single.php",
+		"/Users/obshi/Documents/Web/graphics/themes/s/index.php",
+		"/Users/obshi/Documents/Web/graphics/themes/s/scss/index.scss",
+		"/Users/obshi/Documents/Web/graphics/themes/s/css/style.css",
+		"/Users/obshi/Documents/Web/graphics/themes/s/scss/style.scss",
+		"/Users/obshi/Documents/Web/graphics/themes/s/page-graphics.php",
+		"/Users/obshi/Documents/Web/graphics/public/js/script.js",
+		"/Users/obshi/Documents/Web/graphics/node_modules/webpack-stream/node_modules/webpack/lib/optimize/CommonsChunkPlugin.js",
+		"/Users/obshi/Documents/Web/graphics/node_modules/glob/common.js",
+		"/Users/obshi/Documents/Web/graphics/.docker/.wordpress/wp-includes/class-wp-simplepie-sanitize-kses.php",
+		"/Users/obshi/Documents/Web/graphics/themes/s/functions.php",
+		"/Users/obshi/Documents/Web/graphics/themes/s/footer.php",
+		"/Users/obshi/Documents/Web/graphics/src/stylus/style.styl",
+		"/Users/obshi/Documents/Web/graphics/themes/s/style.css",
+		"/Users/obshi/Documents/Web/graphics/themes/s/css/single.css",
+		"/Users/obshi/Documents/Web/graphics/themes/s/scss/style.css",
+		"/Users/obshi/Documents/Web/graphics/themes/s/style.scss",
+		"/Users/obshi/Documents/Web/graphics/src/pug/index.pug",
+		"/Users/obshi/Documents/Web/graphics/package.json",
+		"/Users/obshi/Documents/Web/graphics/.docker/app/.env",
+		"/Users/obshi/Documents/Web/graphics/.docker/docker-compose.yml",
+		"/Users/obshi/Documents/work-space/mochigoma_new/themes/s/assets/jsx/entry.jsx",
+		"/Users/obshi/Documents/sublime-text-projects/mochigoma/mochigoma.sublime-project",
+		"/Users/obshi/Documents/TDU/ComProII/06_21/toi1.c",
+		"/Users/obshi/Desktop/php-config.php"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/js/graphic/Scene/MainScene.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 6623,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": 81,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 1.0,
+						"translation.y": 1452.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.gulp_output":
+	{
+		"height": 108.0
+	},
+	"pinned_build_system": "",
+	"project": "obshi.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"sing",
+				"themes/s/single.php"
+			],
+			[
+				"arti",
+				"themes/s/items/article.php"
+			],
+			[
+				"fun",
+				"themes/s/functions.php"
+			],
+			[
+				"func",
+				"themes/s/functions.php"
+			],
+			[
+				"inde",
+				"themes/s/index.php"
+			],
+			[
+				"index",
+				".docker/.wordpress/index.php"
+			],
+			[
+				"single",
+				"themes/s/single.php"
+			],
+			[
+				"gulp",
+				"gulpfile.babel.js"
+			],
+			[
+				"head",
+				"themes/s/header.php"
+			],
+			[
+				"article",
+				"themes/s/items/article.php"
+			],
+			[
+				"indexphp",
+				"themes/s/index.php"
+			],
+			[
+				"common",
+				"themes/s/scss/common.scss"
+			],
+			[
+				"commonsc",
+				"node_modules/webpack-stream/node_modules/webpack/lib/optimize/CommonsChunkPlugin.js"
+			],
+			[
+				"index scss",
+				"themes/s/scss/index.scss"
+			],
+			[
+				"",
+				"themes/s/scss/index.scss"
+			],
+			[
+				"indexcss",
+				"themes/s/scss/index.scss"
+			],
+			[
+				"css",
+				".docker/.wordpress/wp-includes/class-wp-simplepie-sanitize-kses.php"
+			],
+			[
+				"articl",
+				"themes/s/items/article.php"
+			],
+			[
+				"single.css",
+				"themes/s/css/single.css"
+			],
+			[
+				"style",
+				"src/stylus/style.styl"
+			],
+			[
+				"style.css",
+				"themes/s/scss/style.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 755.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/Web/threejs-template/threejs-template.sublime-project"
+			]
+		],
+		"width": 422.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 226.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
