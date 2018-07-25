@@ -333,6 +333,17 @@ canvas{
     margin: 30px auto;
 }
 
+.download{
+    position: relative;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.download:hover{
+    color: rgb(158, 158, 158);
+}
+
 #roots_text{
     font-size: 9pt;
 }
