@@ -198,8 +198,10 @@ canvas{
     text-align: center;
     font-size: 11pt;
     margin: 10px;
+    position: relative;
 }
 .date{
+    position: relative;
     margin: 5px;
 }
 
@@ -329,6 +331,17 @@ canvas{
     display: block;
     width: 40%;
     margin: 30px auto;
+}
+
+.download{
+    position: relative;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.download:hover{
+    color: rgb(158, 158, 158);
 }
 
 #roots_text{

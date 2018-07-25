@@ -62037,25 +62037,26 @@ function () {
     key: "animation",
     value: function animation() {
       var $window = (0, _jquery.default)(window);
-      (0, _jquery.default)('.fade_in').each(function () {
+      (0, _jquery.default)('.fade_in,.download').each(function () {
         var window_height = $window.height();
         var scroll = $window.scrollTop();
         var pos = (0, _jquery.default)(this).offset().top;
         (0, _jquery.default)(this).css('transition', '0.5s');
 
-        if (scroll > pos - window_height + window_height / 2) {
+        if (scroll > pos - window_height + window_height / 20) {
           (0, _jquery.default)(this).css("opacity", "1");
         } else {
-          (0, _jquery.default)(this).css("opacity", "0.2");
+          (0, _jquery.default)(this).css("opacity", "0");
         }
       });
-      (0, _jquery.default)('img,.description,.video,.sub_description').each(function () {
+      (0, _jquery.default)('img,.description,.sub_description,.video').each(function () {
+        if ((0, _jquery.default)(this).parent().hasClass('sub_description')) return;
         var window_height = $window.height();
         var scroll = $window.scrollTop();
         var pos = (0, _jquery.default)(this).offset().top;
         (0, _jquery.default)(this).css('transition', '0.5s');
 
-        if (scroll > pos - window_height + window_height / 15) {
+        if (scroll > pos - window_height + window_height / 18) {
           (0, _jquery.default)(this).css({
             'opacity': 1,
             'top': '0px'
