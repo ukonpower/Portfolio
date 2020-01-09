@@ -1,0 +1,20 @@
+[debug] [2020-01-09T14:51:24.439Z] ----------------------------------------------------------------------
+[debug] [2020-01-09T14:51:24.441Z] Command:       /c/ubuntu_home/.nodebrew/node/v10.16.3/bin/node /c/ubuntu_home/.nodebrew/current/bin/firebase deploy
+[debug] [2020-01-09T14:51:24.441Z] CLI Version:   7.11.0
+[debug] [2020-01-09T14:51:24.441Z] Platform:      linux
+[debug] [2020-01-09T14:51:24.441Z] Node Version:  v10.16.3
+[debug] [2020-01-09T14:51:24.442Z] Time:          Thu Jan 09 2020 23:51:24 GMT+0900 (Japan Standard Time)
+[debug] [2020-01-09T14:51:24.442Z] ----------------------------------------------------------------------
+[debug] [2020-01-09T14:51:24.442Z] 
+[debug] [2020-01-09T14:51:24.471Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-09T14:51:24.472Z] > authorizing via signed-in user
+[debug] [2020-01-09T14:51:24.472Z] [iam] checking project obshi-portfolio for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-01-09T14:51:24.474Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-01-09T14:51:24.474Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-01-09T14:51:24.776Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-09T14:51:24.786Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/obshi-portfolio:testIamPermissions  
+
+[debug] [2020-01-09T14:51:25.950Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-09T14:51:25.952Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/obshi-portfolio  
+ 
