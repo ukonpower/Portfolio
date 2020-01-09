@@ -21,7 +21,7 @@ export default class BaceScene {
 
         this.objPosY = 1.3;
 
-        var envMapPath = './Textures/EnvMap/';
+        var envMapPath = './img/textures/';
         this.cubeTexture = new THREE.CubeTextureLoader().load([
             envMapPath + 'right.jpg',
             envMapPath + 'left.jpg',
